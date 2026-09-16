@@ -1,0 +1,24 @@
+{
+  "python": "3.12.3",
+  "platform": "Linux-6.8.0-136-generic-x86_64-with-glibc2.39",
+  "cpu": "Intel Xeon Processor (Skylake, IBRS, no TSX)",
+  "packages": {
+    "torch": "2.14.0+cpu",
+    "numpy": "2.5.2",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "matplotlib": "3.11.2",
+    "streamlit": "1.64.0",
+    "pytest": "9.1.1"
+  },
+  "source_sha256": {
+    "data.py": "3dd9daee96cd103b912798f5cc415b48dcdc359e2708433708277bd8eef59d90",
+    "models.py": "c8416d354745123f36c6f7027496a69de2a65396f7e90ee712f7e06e472bd027",
+    "training.py": "9c54d9feba86be396afd539d2b35e0be2a876914923386d4e66763e76fbcb19a",
+    "metrics.py": "f686d75b9d6520ff4a22bb7d938093b0413e3f9539e5e8734506635b645feda6",
+    "experiments.py": "70a3a89098a0272f9da450c226dc3d8db58f300217cc5382adbf4a2e706512cd",
+    "protocol.json": "f65ec804e2dc42abb741ebfbeae1c6fe3502f6ce7b413052cdc12a66024d224d"
+  },
+  "data_url": "https://zenodo.org/records/10519652/files/pathmnist.npz?download=1",
+  "data_md5": "a8b06965200029087d5bd730944a56c1"
+}

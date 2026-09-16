@@ -1,0 +1,23 @@
+{
+  "training_seconds": 236.6744498340413,
+  "iterations": [
+    300
+  ],
+  "converged": false,
+  "warnings": [
+    {
+      "category": "ConvergenceWarning",
+      "message": "lbfgs failed to converge after 300 iteration(s) (status=1):\nSTOP: TOTAL NO. OF ITERATIONS REACHED LIMIT\n\nIncrease the number of iterations to improve the convergence (max_iter=300).\nYou might also want to scale the data as shown in:\n    https://scikit-learn.org/stable/modules/preprocessing.html\nPlease also refer to the documentation for alternative solver options:\n    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression"
+    }
+  ],
+  "selection_metrics": {
+    "examples": 5002,
+    "accuracy": 0.4212315073970412,
+    "macro_f1": 0.3919273561818943,
+    "nll": 1.5156410591301428,
+    "brier": 0.7018036573967094,
+    "ece": 0.04118090008504327,
+    "mean_confidence": 0.4082512602084097
+  },
+  "parameters": 21177
+}

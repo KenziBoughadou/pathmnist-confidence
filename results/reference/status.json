@@ -1,0 +1,6 @@
+{
+  "status": "interrupted",
+  "started_at": "2026-09-16T11:52:42.740339+00:00",
+  "error": "KeyboardInterrupt: Signal 15",
+  "finished_at": "2026-09-16T11:59:01.689447+00:00"
+}

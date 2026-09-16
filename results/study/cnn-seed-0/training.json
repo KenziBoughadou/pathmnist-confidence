@@ -1,0 +1,6 @@
+{
+  "training_seconds": 718.4583602920175,
+  "best_epoch": 13,
+  "selection_nll": 0.5183190742339048,
+  "parameters": 106089
+}

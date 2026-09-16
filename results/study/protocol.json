@@ -1,0 +1,47 @@
+{
+  "dataset": "PathMNIST 28x28 RGB",
+  "split_seed": 2026,
+  "selection_fraction_of_official_validation": 0.5,
+  "cnn_seeds": [
+    0,
+    1,
+    2
+  ],
+  "epochs": 15,
+  "batch_size": 256,
+  "learning_rate": 0.001,
+  "optimizer": "Adam, default betas and epsilon, weight_decay=0",
+  "preprocessing": "pixels divided by 255; no augmentation; flatten for logistic regression",
+  "logistic": {
+    "C": 1.0,
+    "solver": "lbfgs",
+    "max_iter": 300,
+    "tol": 0.0001
+  },
+  "checkpoint_selection": "minimum selection NLL, first epoch in a tie",
+  "temperature": "minimize calibration NLL over log(T) in [-4,4]; keep T=1 if no improvement",
+  "ece_bins": 15,
+  "ece_definition": "top-label, equal-width bins, left-inclusive, final right-inclusive",
+  "brier_definition": "mean over examples of sum over nine classes; range [0,2]",
+  "coverage_levels": [
+    1.0,
+    0.9,
+    0.75,
+    0.5
+  ],
+  "thresholds": [
+    0.5,
+    0.7,
+    0.8,
+    0.9,
+    0.95
+  ],
+  "risk_definition": "error rate on the accepted examples",
+  "confidence_definition": "maximum predicted class probability",
+  "ties": "stable ascending original index; same tie-breaking rule before and after calibration",
+  "error_examples": "ten errors ranked by raw CNN confidence; seed 0 for the main illustration; all seeds archived",
+  "threads": 2,
+  "device": "cpu",
+  "mkl_cbwr": "COMPATIBLE",
+  "smoke": false
+}

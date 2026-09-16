@@ -1,0 +1,8 @@
+{
+  "status": "complete",
+  "started_at": "2026-09-16T12:00:29.291408+00:00",
+  "training_finished_at": "2026-09-16T12:40:14.489168+00:00",
+  "calibration_finished_at": "2026-09-16T12:40:18.714369+00:00",
+  "evaluation_split": "official_test",
+  "finished_at": "2026-09-16T12:40:27.018616+00:00"
+}

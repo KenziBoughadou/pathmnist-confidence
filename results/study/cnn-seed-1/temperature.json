@@ -1,0 +1,15 @@
+{
+  "temperature": 0.9339486811940325,
+  "calibration_nll_raw": 0.5644852477330838,
+  "calibration_nll_scaled": 0.5631749727320189,
+  "optimizer_success": true,
+  "optimizer_evaluations": 21,
+  "log_temperature_bounds": [
+    -4.0,
+    4.0
+  ],
+  "near_bound": false,
+  "kept_identity": false,
+  "optimization_seconds": 0.09389067627489567,
+  "examples": 5002
+}
