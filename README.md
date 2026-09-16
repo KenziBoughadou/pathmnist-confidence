@@ -167,69 +167,6 @@ couvertures obtenues en classant le test. Aucun seuil exploré dans la démo ne
 devient un seuil validé pour un usage réel. Si aucune image n'est acceptée,
 l'exactitude sur les images acceptées est indéfinie.
 
-## Reproduire
-
-Environnement CPU : Python 3.12, Linux x86_64. Les versions utilisées sont figées
-dans [requirements.txt](requirements.txt). Le téléchargement utilise directement
-l'archive officielle MedMNIST ; sa somme MD5 est vérifiée.
-
-```bash
-git clone https://github.com/KenziBoughadou/pathmnist-confidence.git
-cd pathmnist-confidence
-python3.12 -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements.txt
-python -m pytest -q
-python experiments.py --smoke
-python experiments.py --output-dir results/ma-reproduction
-python report.py --results-dir results/ma-reproduction
-```
-
-L'essai court utilise 1 024 images d'entraînement, 256 de sélection et 256 de
-calibration, deux époques CNN et dix itérations de régression logistique. Il
-n'accède jamais au test officiel ; ses résultats ne mesurent pas la performance
-scientifique des modèles.
-
-Chaque tentative crée un nouveau dossier. Un chemin existant est refusé : les
-historiques et les avertissements ne sont jamais remplacés par une relance.
-L'environnement virtuel, l'archive complète des données et les checkpoints
-restent locaux. Les sorties nécessaires au rapport et à la démo sont distribuées.
-
-Pour lire l'étude enregistrée sans entraîner ni télécharger les données :
-
-```bash
-python report.py --results-dir results/study
-python -m streamlit run app.py
-```
-
-Streamlit affiche une image du test, sa vraie classe, la prédiction, les neuf
-probabilités avant/après calibration et la décision d'abstention au seuil choisi.
-Les poids ne sont pas nécessaires pour explorer des prédictions déjà calculées.
-Aucun téléchargement d'image personnelle, entraînement ou diagnostic n'est proposé.
-
-## Lire le code
-
-| Fichier | Rôle |
-|---|---|
-| [data.py](data.py) | Archive, séparation sélection/calibration, conversion des images |
-| [models.py](models.py) | Architecture du petit CNN |
-| [training.py](training.py) | Entraînement et extraction des logits |
-| [metrics.py](metrics.py) | Température, métriques, classement et abstention |
-| [experiments.py](experiments.py) | Ordre des expériences et sauvegardes |
-| [report.py](report.py) | Recalcul des tableaux et figures depuis les sorties |
-| [app.py](app.py) | Exploration des résultats enregistrés |
-| [tests](tests/) | Vérifications des calculs et de la séparation des usages |
-
-Les **20 tests validés** couvrent notamment les partitions, les métriques, la
-reproductibilité sur données synthétiques, le rechargement des poids, l’ordre
-sélection–calibration–test, les interruptions, le rapport et les contrôles Streamlit.
-Le rapport se régénère depuis les archives sans entraînement ni inférence.
-
-Les résultats conservent les indices des partitions, les versions, les empreintes
-du code, les historiques, les températures et les logits. Les probabilités et
-les indices d'origine permettent de recalculer les scores et de retrouver une
-erreur sans charger le modèle.
-
 ## Données, limites et portée
 
 PathMNIST utilise des patchs histologiques issus de NCT-CRC-HE-100K pour le
@@ -262,13 +199,6 @@ colorectal).
 Les images distribuées dans les résultats proviennent de PathMNIST sous CC BY 4.0.
 Les sources, attributions et transformations figurent dans la
 [notice](THIRD_PARTY_NOTICES.md).
-
-## Références
-
-- Yang et al. (2023), [MedMNIST v2](https://doi.org/10.1038/s41597-022-01721-8).
-- Kather et al. (2019), [Predicting survival from colorectal cancer histology slides using deep learning: A retrospective multicenter study](https://doi.org/10.1371/journal.pmed.1002730).
-- [Métadonnées officielles PathMNIST](https://github.com/MedMNIST/MedMNIST/blob/main/medmnist/info.py).
-- Guo et al. (2017), [On Calibration of Modern Neural Networks](https://proceedings.mlr.press/v70/guo17a.html).
 
 Le projet [Fashion-MNIST Study](https://github.com/KenziBoughadou/fashion-mnist-study)
 reste une étude distincte de comparaison MLP/CNN. Il ne contient pas les expériences
